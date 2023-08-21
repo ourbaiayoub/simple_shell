@@ -17,7 +17,7 @@ char **strTow(char *str, char *d)
 	if (!d)
 		d = " ";
 	for (i = 0; str[i] != '\0'; i++)
-		if (!is_delimetereter(str[i], d) && (is_delimetereter(str[i + 1], d) || !str[i + 1]))
+		if (!is_delimeter(str[i], d) && (is_delimeter(str[i + 1], d) || !str[i + 1]))
 			numwords++;
 
 	if (numwords == 0)
@@ -27,10 +27,10 @@ char **strTow(char *str, char *d)
 		return (NULL);
 	for (i = 0, j = 0; j < numwords; j++)
 	{
-		while (is_delimetereter(str[i], d))
+		while (is_delimeter(str[i], d))
 			i++;
 		k = 0;
-		while (!is_delimetereter(str[i + k], d) && str[i + k])
+		while (!is_delimeter(str[i + k], d) && str[i + k])
 			k++;
 		s[j] = malloc((k + 1) * sizeof(char));
 		if (!s[j])
